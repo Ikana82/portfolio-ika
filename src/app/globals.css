@@ -1,16 +1,72 @@
 @import "tailwindcss";
 
+
+.social-link-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.132);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.social-link-wrapper svg {
+  color: #b8c1cd;
+  transition: color 0.3s ease;
+}
+.social-link-wrapper:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.social-link-wrapper:hover svg {
+  color: #000000;
+}
+
+/*Style tooltip*/
+.social-link-wrapper:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.tooltip {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(5px);
+  background-color: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
