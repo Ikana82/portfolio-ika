@@ -1,10 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { FaGithub, FaLinkedin, FaBehance } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import AnimationRight from "@/components/Animation";
 
 //Animasi
 const staggerContainer: Variants = {
@@ -46,11 +47,11 @@ const fadeInRightColumn: Variants = {
 
 const Home: React.FC = () => {
   return (
-    <section className="min-h-screen flex items-center px-10 md:px-30 bg-gray-950 text-gray-200">
+    <section className="min-h-screen flex items-center px-10 md:px-30 lg:px-30 py-24 bg-gray-950 text-gray-200 overflow-hidden">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
         {/* Left */}
         <motion.div
-          className="w-full md:w-1/2"
+          className="w-full md:w-1/2 text-center md:text-left"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
@@ -58,13 +59,13 @@ const Home: React.FC = () => {
           {/* Tagline Portfolio */}
           <motion.div
             variants={fadeInUp}
-            className="inline-flex items-center gap-3 rounded-full bg-blue-950 px-5 py-2 mb-6"
+            className="inline-flex items-center gap-3 rounded-full bg-blue-950 px-5 py-3 mb-8"
           >
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
             </span>
-            <p className="text-sm text-blue-300">
+            <p className="text-md text-blue-300">
               Frontend Developer & UI/UX Designer
             </p>
             <span className="text-md">✨</span>
@@ -81,7 +82,7 @@ const Home: React.FC = () => {
           {/* Description */}
           <motion.p
             variants={fadeInUp}
-            className="text-gray-300 text-md md:text-md"
+            className="text-gray-300 text-md md:text-lg leading-relaxed"
           >
             I bridge the gap between user-centric design and precise technical
             execution, transforming complex ideas into functional and web
@@ -89,16 +90,19 @@ const Home: React.FC = () => {
           </motion.p>
 
           {/* Call To Action */}
-          <motion.div variants={fadeInUp} className="mt-8 flex gap-5">
+          <motion.div
+            variants={fadeInUp}
+            className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start"
+          >
             <a
               href="/projects"
-              className="px-6 py-3 text-sm rounded-lg border border-white/20 hover:bg-white/10 transitior text-gray-200"
+              className="px-6 py-3 text-md rounded-lg border border-white/20 hover:bg-white/10 transitior text-gray-200"
             >
               View Projects
             </a>
             <a
               href="/about"
-              className="px-6 py-3 text-sm rounded-lg bg-white text-slate-950 hover:bg-gray-300 transition"
+              className="px-6 py-3 text-md rounded-lg bg-white text-slate-950 hover:bg-gray-300 transition"
             >
               More About Me
             </a>
@@ -107,7 +111,7 @@ const Home: React.FC = () => {
           {/* Social Media */}
           <motion.div
             variants={fadeInUp}
-            className="mt-6 flex items-center gap-5"
+            className="mt-8 flex flex-wrap items-center gap-4 justify-center md:justify-start"
           >
             {/* Github */}
             <a
@@ -153,11 +157,14 @@ const Home: React.FC = () => {
         </motion.div>
 
         {/* Right */}
-        <div className="w-full md:w-1/2">
-          <div className="flex items-center justify-center w-full h-90 bg-zinc-800/50 border-white/10 rounded-lg ">
-            Animation
-          </div>
-        </div>
+        <motion.div
+          className="w-full md:w-1/2 flex justify-center md:justify-end"
+          variants={fadeInRightColumn}
+          initial="hidden"
+          animate="visible"
+        >
+          <AnimationRight />
+        </motion.div>
       </div>
     </section>
   );

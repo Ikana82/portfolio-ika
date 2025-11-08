@@ -22,7 +22,7 @@ export default function Navbar() {
           <Link
             key={item.href}
             href={item.href}
-            className={`text-sm transition ${
+            className={`text-md transition ${
               active ? "text-blue-500" : "text-white hover:text-gray-400"
             }`}
           >
